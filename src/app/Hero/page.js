@@ -139,7 +139,7 @@ export default function Hero() {
           {[
             {
               icon: <Github className="w-5 h-5" />,
-              href: "https://github.com/yourusername",
+              href: "https://github.com/Ali105111",
               color: "hover:text-purple-400",
             },
             {
@@ -273,7 +273,7 @@ export default function Hero() {
               {[
                 {
                   icon: <Github className="w-5 h-5" />,
-                  href: "https://github.com/yourusername",
+                  href: "https://github.com/Ali105111",
                   color: "hover:text-purple-400",
                 },
                 {
@@ -334,8 +334,8 @@ export default function Hero() {
                     sequence={[
                       "Full Stack Web Developer",
                       2000,
-                      "UI/UX Designer",
-                      2000,
+                      // "UI/UX Designer",
+                      // 2000,
                       "React Specialist",
                       2000,
                       "Next.js Expert",
@@ -433,8 +433,8 @@ export default function Hero() {
                       sequence={[
                         "Full Stack Web Developer",
                         2000,
-                        "UI/UX Designer",
-                        2000,
+                        // "UI/UX Designer",
+                        // 2000,
                         "React Specialist",
                         2000,
                         "Next.js Expert",

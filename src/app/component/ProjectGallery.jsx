@@ -143,7 +143,7 @@ export default function ProjectGallery() {
         </motion.div>
 
         {/* Filter Tabs */}
-        <motion.div
+        {/* <motion.div
           className="flex flex-wrap justify-center gap-2 mb-10"
           initial={{ opacity: 0, y: 20 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
@@ -164,7 +164,7 @@ export default function ProjectGallery() {
               {category}
             </motion.button>
           ))}
-        </motion.div>
+        </motion.div> */}
 
         {/* Gallery Grid */}
         <motion.div

@@ -132,7 +132,7 @@ export default function Footer() {
         >
           <p>
             Copyright ©2025 All rights reserved | This portfolio is made by{" "}
-            <Heart className="w-4 h-4 inline-block text-red-500" /> by{" "}
+            <Heart className="w-4 h-4 inline-block text-red-500" /> {" "}
             <a href="#" className="text-purple-400 hover:text-purple-300 transition-colors">
               Ali
             </a>

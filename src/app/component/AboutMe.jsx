@@ -21,7 +21,7 @@ export default function AboutMe() {
     { name: "Spring Boot", level: 85 },
     { name: "postgres", level: 80 },
     { name: "Tailwind CSS", level: 95 },
-    { name: "UI/UX Design", level: 85 },
+    { name: "Supabase", level: 85 },
   ]
 
   // Education data
@@ -173,7 +173,7 @@ export default function AboutMe() {
                   <div className="p-3 bg-indigo-600/20 rounded-full mb-2">
                     <Briefcase className="w-6 h-6 text-indigo-400" />
                   </div>
-                  <h3 className="text-lg font-bold">10+ Production Level Projects</h3>
+                  <h3 className="text-lg font-bold">Production Level Projects</h3>
                   <p className="text-sm text-gray-400">Completed</p>
                 </motion.div>
               </div>
