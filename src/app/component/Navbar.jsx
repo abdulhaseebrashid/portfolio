@@ -39,7 +39,7 @@ export default function Navbar() {
   const navItems = [
     { name: "Home", href: "/" },
     { name: "Projects", href: "projects" },
-    { name: "Contact Me", href: "#contact" },
+    { name: "Contact Me", href: "/contact" },
   ]
 
   const toggleSidebar = () => {
