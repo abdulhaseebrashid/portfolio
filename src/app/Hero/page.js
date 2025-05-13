@@ -26,6 +26,8 @@ import pythonIcon from "../../../public/icons/python.png";
 import Link from "next/link";
 import postgreSQL from "../../../public/icons/postgreSQL.png";
 import typescriptIcon from "../../../public/icons/typescript.png";
+import gitIcon from "../../../public/icons/git.png";
+import githubIcon from "../../../public/icons/github.png";
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState({
@@ -76,6 +78,8 @@ export default function Hero() {
     { name: "Django", icon: djangoIcon },
     { name: "Flask", icon: flaskIcon },
     { name: "Python", icon: pythonIcon },
+    { name: "git", icon: gitIcon},
+    { name: "github", icon: githubIcon},
   ];
 
   // Tech icons that will float around the profile image (desktop only)
