@@ -1,28 +1,28 @@
-"use client"
+"use client";
 
-import { useState, useEffect, useRef } from "react"
-import { motion, useInView } from "framer-motion"
-import Image from "next/image"
-import { Download, User, Code, Briefcase, GraduationCap } from "lucide-react"
+import { useState, useEffect, useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import Image from "next/image";
+import { Download, User, Code, Briefcase, GraduationCap } from "lucide-react";
 
 export default function AboutMe() {
-  const [isVisible, setIsVisible] = useState(false)
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   // Skills data
+  // Skills data
   const skills = [
-    { name: "React", level: 85 },
-    { name: "Next.js", level: 90 },
-    { name: "JavaScript", level: 80 },
-    { name: "TypeScript", level: 70 },
-    { name: "Node.js", level: 85 },
+    { name: "React", level: 70 },
+    { name: "JavaScript", level: 75 },
     { name: "Java", level: 85 },
-    { name: "Spring Boot", level: 85 },
-    { name: "postgres", level: 80 },
+    { name: "Python", level: 90 },
+    { name: "PostgreSQL", level: 80 },
+    { name: "Firebase", level: 75 },
     { name: "Tailwind CSS", level: 95 },
-    { name: "Supabase", level: 85 },
-  ]
+    { name: "ML Engineering", level: 85 },
+    { name: "Spring Boot", level: 70 },
+  ];
 
   // Education data
   const education = [
@@ -34,59 +34,65 @@ export default function AboutMe() {
     // },
     {
       degree: "Bachelor of Computer Science",
-      institution: "Shaheed Zulfikar Ali Bhutto Institute of Science and Technology",
+      institution:
+        "Shaheed Zulfikar Ali Bhutto Institute of Science and Technology",
       year: "2021 - 2025",
-      description: "Graduated with honors, focused on Web Technologies",
+      description:
+        "Graduated with honors, specializing in AI-driven web technologies and intelligent application development.",
     },
-  ]
+  ];
 
   // Experience data
   const experience = [
-    {
-      position: "Team Lead-Full Stack Developer",
-      company: "Boosts Inc.",
-      year: "2024 - Present",
-      description:
-        "Leading the development team, implementing modern web applications using both frontend and backend technologies",
-    },
+    // {
+    //   position: "Team Lead-Full Stack Developer",
+    //   company: "Boosts Inc.",
+    //   year: "2024 - Present",
+    //   description:
+    //     "Leading the development team, implementing modern web applications using both frontend and backend technologies",
+    // },
     {
       position: "Free Lencer Developer",
       company: "Fiver , Upwork",
       year: "2020 - 2022",
-      description: "Developed responsive websites and web applications for various clients",
+      description:
+        "Developed responsive websites and web applications for various clients",
     },
- 
-  ]
+  ];
 
   useEffect(() => {
     if (isInView) {
-      setIsVisible(true)
+      setIsVisible(true);
     }
-  }, [isInView])
+  }, [isInView]);
 
   // Function to handle CV download
   const handleDownloadCV = () => {
     // Create a link element
-    const link = document.createElement("a")
+    const link = document.createElement("a");
 
     // Set the href to the path of your CV file
-    link.href = "/Muhammad_ali_Iqbal_CV.pdf"
+    link.href = "/Abdul Haseeb Rashid.pdf";
 
     // Set the download attribute with the desired filename
-    link.download = "Muhammad_ali_Iqbal_CV.pdf"
+    link.download = "Abdul Haseeb Rashid.pdf";
 
     // Append to the document
-    document.body.appendChild(link)
+    document.body.appendChild(link);
 
     // Trigger the click event
-    link.click()
+    link.click();
 
     // Clean up
-    document.body.removeChild(link)
-  }
+    document.body.removeChild(link);
+  };
 
   return (
-    <section className="py-20 px-4 sm:px-6 bg-none text-white" id="about" ref={ref}>
+    <section
+      className="py-20 px-4 sm:px-6 bg-none text-white"
+      id="about"
+      ref={ref}
+    >
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <motion.div
@@ -143,7 +149,12 @@ export default function AboutMe() {
                   transition={{ duration: 0.8, delay: 0.7 }}
                 ></motion.div>
                 <div className="relative h-full w-full overflow-hidden rounded-xl">
-                  <Image src="/profile.jpeg" alt="Muhammad Ali" fill className="object-cover" />
+                  <Image
+                    src="/pp.jpg"
+                    alt="Abdul Haseeb Rashid"
+                    fill
+                    className="object-cover"
+                  />
                 </div>
               </div>
 
@@ -151,7 +162,10 @@ export default function AboutMe() {
               <div className="grid grid-cols-2 gap-4 mt-8">
                 <motion.div
                   className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10 flex flex-col items-center"
-                  whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.1)" }}
+                  whileHover={{
+                    scale: 1.05,
+                    backgroundColor: "rgba(255, 255, 255, 0.1)",
+                  }}
                   initial={{ opacity: 0, y: 20 }}
                   animate={isVisible ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.5 }}
@@ -165,7 +179,10 @@ export default function AboutMe() {
 
                 <motion.div
                   className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10 flex flex-col items-center"
-                  whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.1)" }}
+                  whileHover={{
+                    scale: 1.05,
+                    backgroundColor: "rgba(255, 255, 255, 0.1)",
+                  }}
                   initial={{ opacity: 0, y: 20 }}
                   animate={isVisible ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.6 }}
@@ -173,7 +190,9 @@ export default function AboutMe() {
                   <div className="p-3 bg-indigo-600/20 rounded-full mb-2">
                     <Briefcase className="w-6 h-6 text-indigo-400" />
                   </div>
-                  <h3 className="text-lg font-bold">Production Level Projects</h3>
+                  <h3 className="text-lg font-bold">
+                    Production Level Projects
+                  </h3>
                   <p className="text-sm text-gray-400">Completed</p>
                 </motion.div>
               </div>
@@ -228,19 +247,25 @@ export default function AboutMe() {
               </h3>
               <div className="space-y-4 text-gray-300">
                 <p>
-                  I am a passionate Full Stack Web Developer with expertise in creating modern, responsive web
-                  applications. With over 2 years of experience in the field, I have developed a strong understanding of
-                  both frontend and backend technologies.
+                  I am a passionate Full Stack Web Developer with expertise in
+                  creating modern, responsive web applications. With over 2
+                  years of experience in the field, I have developed a strong
+                  understanding of both frontend and backend technologies.
                 </p>
                 <p>
-                  My journey in web development began during my university years, where I discovered my passion for
-                  creating digital experiences. Since then, I have worked on numerous projects, ranging from small
-                  business websites to complex enterprise applications.
+                  My journey in web development began during my university
+                  years, where I discovered my passion for creating digital
+                  experiences. Since then, I have worked on numerous projects,
+                  ranging from small business websites to complex enterprise
+                  applications.
                 </p>
                 <p>
-                  I specialize in Spring Boot ,React, Next.js, and Node.js, and I am constantly learning new technologies to stay at
-                  the forefront of web development. My goal is to create web applications that are not only visually
-                  appealing but also performant and user-friendly.
+                  I specialize in Python and backend development using Django,
+                  with a strong focus on Machine Learning, Deep Learning, and
+                  building AI-powered web solutions. I am dedicated to
+                  delivering intelligent, scalable, and user-centric
+                  applications by leveraging the latest in data-driven and AI
+                  technologies.
                 </p>
               </div>
             </motion.div>
@@ -267,7 +292,9 @@ export default function AboutMe() {
                   >
                     <div className="flex justify-between">
                       <span className="text-sm font-medium">{skill.name}</span>
-                      <span className="text-sm text-gray-400">{skill.level}%</span>
+                      <span className="text-sm text-gray-400">
+                        {skill.level}%
+                      </span>
                     </div>
                     <div className="h-2 bg-white/10 rounded-full overflow-hidden">
                       <motion.div
@@ -310,7 +337,9 @@ export default function AboutMe() {
                     <span className="text-sm text-purple-400">{item.year}</span>
                     <h4 className="text-lg font-bold mt-1">{item.degree}</h4>
                     <p className="text-gray-400">{item.institution}</p>
-                    <p className="text-sm text-gray-300 mt-2">{item.description}</p>
+                    <p className="text-sm text-gray-300 mt-2">
+                      {item.description}
+                    </p>
                   </div>
                 </motion.div>
               ))}
@@ -341,7 +370,9 @@ export default function AboutMe() {
                     <span className="text-sm text-indigo-400">{item.year}</span>
                     <h4 className="text-lg font-bold mt-1">{item.position}</h4>
                     <p className="text-gray-400">{item.company}</p>
-                    <p className="text-sm text-gray-300 mt-2">{item.description}</p>
+                    <p className="text-sm text-gray-300 mt-2">
+                      {item.description}
+                    </p>
                   </div>
                 </motion.div>
               ))}
@@ -350,5 +381,5 @@ export default function AboutMe() {
         </div>
       </div>
     </section>
-  )
+  );
 }

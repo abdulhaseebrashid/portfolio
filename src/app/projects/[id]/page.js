@@ -1,37 +1,59 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { useParams, useRouter } from "next/navigation"
-import Image from "next/image"
-import { motion, AnimatePresence } from "framer-motion"
-import { ArrowLeft, X, ChevronLeft, ChevronRight, Calendar, Clock, ExternalLink } from "lucide-react"
-import Navbar from "../../component/Navbar" // Import your Navbar component
+import { useState, useEffect } from "react";
+import { useParams, useRouter } from "next/navigation";
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  ArrowLeft,
+  X,
+  ChevronLeft,
+  ChevronRight,
+  Calendar,
+  Clock,
+  ExternalLink,
+} from "lucide-react";
+import Navbar from "../../component/Navbar"; // Import your Navbar component
 
-// Sample project data - replace with your actual data source
+// Updated project data with AI project replacing e-commerce
 const projectsData = [
   {
-    id: "ecommerce-platform",
-    title: "E-Commerce Platform",
+    id: "ai-innovation-hub",
+    title: "AI Innovation Hub",
     description:
-      "A full-stack e-commerce solution with payment integration and admin dashboard. This project showcases my ability to build complex web applications with multiple user roles, payment processing, and inventory management.",
+      "A comprehensive AI-powered web application that integrates multiple machine learning models for practical applications. Features include advanced object detection with real-time processing, an innovative sign language translation system that bridges communication gaps, and a creative AI story generator that produces unique narratives based on user prompts.",
     longDescription:
-      "This e-commerce platform was built to provide small businesses with an affordable and customizable online store solution. The platform includes features such as product management, inventory tracking, order processing, customer management, and analytics.\n\nThe admin dashboard provides store owners with a comprehensive view of their business, including sales trends, popular products, and customer behavior. The platform also includes a robust search and filtering system to help customers find products quickly.",
-    techStack: ["React", "Node.js", "Express", "MongoDB", "Redux", "Stripe API", "Hontinger (VPS Server)"],
-    images: [
-      "/ProjectImages/p4-1.png",
-      "/ProjectImages/p4-2.png",
-      "/ProjectImages/p4-3.png",
-      "/ProjectImages/p4-4.png",
-      "/ProjectImages/p4-5.png",
-      "/ProjectImages/p4-6.png",
+      "The AI Innovation Hub represents a culmination of cutting-edge artificial intelligence technologies integrated into a single, user-friendly platform. This project was developed to demonstrate the practical applications of AI in solving real-world challenges across various domains.\n\nAt its core, the platform features three main components: an advanced object detection system capable of identifying and tracking multiple objects in real-time with remarkable accuracy; a sign language translation system that uses computer vision to interpret sign language gestures and convert them to text and speech, helping bridge communication gaps for the hearing impaired; and a creative AI story generator that leverages natural language processing to create unique narratives based on user prompts and preferences.\n\nThe object detection module utilizes a custom-trained convolutional neural network that processes video input at 30 frames per second, identifying objects with 94% accuracy even in challenging lighting conditions. The sign language translator employs a combination of pose estimation and gesture recognition algorithms to interpret American Sign Language (ASL) with an 89% accuracy rate for common phrases and words.\n\nThe story generator uses a fine-tuned GPT model that has been specifically trained on a diverse corpus of literature to produce coherent, engaging narratives across multiple genres. Users can specify themes, characters, and plot elements, and the AI will generate a unique story that incorporates these elements while maintaining narrative consistency.",
+    techStack: [
+      "Python",
+      "Django",
+      "REST API",
+      "PostgreSQL",
+      "React",
+      "TensorFlow",
+      "PyTorch",
+      "Computer Vision",
+      "Natural Language Processing",
+      "AI Assistant Integration",
     ],
-    category: "Web Development",
-    date: "June 2023",
-    duration: "3 months",
-    client: "Job Project At BoostsInc",
-    role: "Team Lead-Full Stack Developer",
-    githubUrl: "https://github.com/yourusername/ecommerce-platform",
-    liveUrl: "https://ecommerce-platform.example.com",
+    images: [
+      "/ProjectImages/AI 1.png",
+      "/ProjectImages/AI 2.png",
+      "/ProjectImages/AI 3.png",
+      // "/ProjectImages/AI 4.png",
+      "/ProjectImages/AI 5.png",
+      "/ProjectImages/AI 6.png",
+      "/ProjectImages/AI 7.png",
+      "/ProjectImages/AI 8.png",
+      "/ProjectImages/AI 9.png",
+    ],
+    category: "AI-powered web application",
+    date: "May 2025",
+    duration: "4 months",
+    client: "Research Project",
+    role: "Lead AI Developer",
+    githubUrl: "https://github.com/yourusername/ai-innovation-hub",
+    liveUrl: "https://ai-innovation-hub.example.com",
   },
   {
     id: "phonebechpk.com",
@@ -88,7 +110,7 @@ const projectsData = [
       "/ProjectImages/fyp6.png",
       "/ProjectImages/fyp7.png",
     ],
-    category: "Web Developement & Mobile Development",
+    category: "AI-powered Web Developement & Mobile Development",
     date: "October 2024",
     duration: "5 months",
     client: "University Project",
@@ -96,75 +118,29 @@ const projectsData = [
     githubUrl: "https://github.com/yourusername/fitness-app",
     liveUrl: "#",
   },
-
-  {
-    id: "Nifty-Orbit",
-    title: "NiftyOrbit.com",
-    description:
-      "Fully functional e-commerce platform that allows users to browse products, manage their shopping cart, place orders, and receive shipment updates. The backend is designed to be secure, scalable, and efficient for handling business operations like order management, product management, and customer interactions.",
-
-    longDescription:
-      "A customizable and cost-effective e-commerce solution designed for small businesses, featuring product and inventory management, order processing, customer insights, and analytics. The intuitive admin dashboard offers real-time business metrics, sales trends, and customer behavior tracking. Enhanced with powerful search and filtering, the platform ensures a seamless shopping experience while simplifying store management.",
-
-    techStack: ["React", "Nest.js", "postgresql", "Hontinger,Deployment", "VPS Server"],
-    images: ["/ProjectImages/nifty2.png", "/ProjectImages/nifty1.png", "/ProjectImages/nifty3.png"],
-    category: "Web Developement",
-    date: "March 2025",
-    duration: "1 months",
-    client: "Job Project At BoostsInc",
-    role: "Team Lead-Full Stack Developer",
-    githubUrl: "#",
-    liveUrl: "https://niftyorbit.com",
-  },
-
-  {
-    id: "SparewarePro",
-    title: "SparewarePro.com",
-    description:
-      "A complete e-commerce solution enabling users to explore products, manage carts, checkout securely, and track orders in real time. Built with a robust backend for scalability, it supports critical business functions including inventory management, order processing, and customer engagement—all while ensuring security and performance at scale.",
-
-    longDescription:
-      "This affordable e-commerce solution gives small businesses everything needed to run an online store effortlessly. It includes product catalog management, real-time inventory tracking, and streamlined order processing. The intuitive admin dashboard provides valuable insights through sales analytics and customer behavior reports. Advanced search and filtering help shoppers discover products quickly, while robust backend tools simplify store management. Designed for scalability, the platform adapts as businesses grow, offering a complete digital retail package at an accessible price point",
-
-    techStack: ["Nest.js", "Hosting", "Deployment", "Shared Hosting"],
-    images: [
-      "/ProjectImages/spare1.png",
-      "/ProjectImages/spare2.png",
-      "/ProjectImages/spare3.png",
-      "/ProjectImages/spare4.png",
-      "/ProjectImages/spare5.png",
-    ],
-    category: "Web Developement",
-    date: "January 2025",
-    duration: "1 week ",
-    client: "Job Project At BoostsInc",
-    role: "Team Lead-Full Stack Developer",
-    githubUrl: "#",
-    liveUrl: "https://SparewarePro.com",
-  },
-]
+];
 
 export default function ProjectDetail() {
-  const router = useRouter()
-  const { id } = useParams()
-  const [project, setProject] = useState(null)
-  const [loading, setLoading] = useState(true)
-  const [lightboxOpen, setLightboxOpen] = useState(false)
-  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const router = useRouter();
+  const { id } = useParams();
+  const [project, setProject] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isVisible, setIsVisible] = useState({
     header: false,
     images: false,
     details: false,
     description: false,
-  })
-  const [particles, setParticles] = useState([])
+  });
+  const [particles, setParticles] = useState([]);
 
   useEffect(() => {
     // Find the project by ID
-    const foundProject = projectsData.find((p) => p.id === id)
+    const foundProject = projectsData.find((p) => p.id === id);
 
     if (foundProject) {
-      setProject(foundProject)
+      setProject(foundProject);
       // Trigger animations after a short delay
       setTimeout(() => {
         setIsVisible({
@@ -172,15 +148,15 @@ export default function ProjectDetail() {
           images: true,
           details: true,
           description: true,
-        })
-      }, 100)
+        });
+      }, 100);
     } else {
       // Handle project not found
-      console.error("Project not found")
+      console.error("Project not found");
     }
 
-    setLoading(false)
-  }, [id])
+    setLoading(false);
+  }, [id]);
 
   useEffect(() => {
     // Generate particles only on the client side
@@ -191,32 +167,34 @@ export default function ProjectDetail() {
         left: `${Math.random() * 100}%`,
         duration: 2 + Math.random() * 3,
         delay: Math.random() * 5,
-      }))
-    setParticles(newParticles)
-  }, [])
+      }));
+    setParticles(newParticles);
+  }, []);
 
   const openLightbox = (index) => {
-    setCurrentImageIndex(index)
-    setLightboxOpen(true)
+    setCurrentImageIndex(index);
+    setLightboxOpen(true);
     // Prevent body scrolling when lightbox is open
-    document.body.style.overflow = "hidden"
-  }
+    document.body.style.overflow = "hidden";
+  };
 
   const closeLightbox = () => {
-    setLightboxOpen(false)
+    setLightboxOpen(false);
     // Restore body scrolling
-    document.body.style.overflow = "auto"
-  }
+    document.body.style.overflow = "auto";
+  };
 
   const nextImage = (e) => {
-    e.stopPropagation()
-    setCurrentImageIndex((prev) => (prev + 1) % project.images.length)
-  }
+    e.stopPropagation();
+    setCurrentImageIndex((prev) => (prev + 1) % project.images.length);
+  };
 
   const prevImage = (e) => {
-    e.stopPropagation()
-    setCurrentImageIndex((prev) => (prev - 1 + project.images.length) % project.images.length)
-  }
+    e.stopPropagation();
+    setCurrentImageIndex(
+      (prev) => (prev - 1 + project.images.length) % project.images.length
+    );
+  };
 
   if (loading) {
     return (
@@ -226,7 +204,7 @@ export default function ProjectDetail() {
           <p className="mt-4 text-lg">Loading project...</p>
         </div>
       </div>
-    )
+    );
   }
 
   if (!project) {
@@ -234,7 +212,9 @@ export default function ProjectDetail() {
       <div className="min-h-screen flex items-center justify-center bg-black text-white">
         <div className="text-center">
           <h1 className="text-3xl font-bold mb-4">Project Not Found</h1>
-          <p className="mb-8">Sorry, the project you're looking for doesn't exist.</p>
+          <p className="mb-8">
+            Sorry, the project you're looking for doesn't exist.
+          </p>
           <button
             onClick={() => router.push("/")}
             className="px-6 py-3 bg-purple-600/40 rounded-lg hover:bg-purple-600/60 transition-colors"
@@ -243,7 +223,7 @@ export default function ProjectDetail() {
           </button>
         </div>
       </div>
-    )
+    );
   }
 
   return (
@@ -501,7 +481,9 @@ export default function ProjectDetail() {
             animate={isVisible.description ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.5 }}
           >
-            <h2 className="text-2xl font-bold mb-6 text-white">Project Overview</h2>
+            <h2 className="text-2xl font-bold mb-6 text-white">
+              Project Overview
+            </h2>
             <div className="prose prose-lg prose-invert max-w-none">
               {project.longDescription.split("\n\n").map((paragraph, index) => (
                 <p key={index} className="mb-4 text-gray-300 leading-relaxed">
@@ -519,7 +501,9 @@ export default function ProjectDetail() {
             transition={{ duration: 0.6, delay: 0.6 }}
           >
             <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-              <h2 className="text-xl font-bold mb-6 text-white">Project Details</h2>
+              <h2 className="text-xl font-bold mb-6 text-white">
+                Project Details
+              </h2>
 
               <div className="space-y-4">
                 <div>
@@ -543,7 +527,10 @@ export default function ProjectDetail() {
                   <h3 className="text-sm text-gray-400 mb-1">Tech Stack</h3>
                   <div className="flex flex-wrap gap-2 mt-2">
                     {project.techStack.map((tech, index) => (
-                      <span key={index} className="px-3 py-1 bg-purple-600/20 rounded-full text-xs text-white">
+                      <span
+                        key={index}
+                        className="px-3 py-1 bg-purple-600/20 rounded-full text-xs text-white"
+                      >
                         {tech}
                       </span>
                     ))}
@@ -552,7 +539,7 @@ export default function ProjectDetail() {
 
                 <div className="pt-4 border-t border-white/10">
                   <div className="flex gap-4">
-                    {/* {project.githubUrl && (
+                    {project.githubUrl && (
                       <motion.a
                         href={project.githubUrl}
                         target="_blank"
@@ -561,10 +548,24 @@ export default function ProjectDetail() {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                       >
-                        <Github className="w-4 h-4" />
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="w-4 h-4"
+                        >
+                          <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                          <path d="M9 18c-4.51 2-5-2-7-2" />
+                        </svg>
                         <span>Code</span>
                       </motion.a>
-                    )} */}
+                    )}
 
                     {project.liveUrl && (
                       <motion.a
@@ -584,7 +585,7 @@ export default function ProjectDetail() {
               </div>
             </div>
           </motion.div>
-        </div>   
+        </div>
       </div>
 
       {/* Lightbox */}
@@ -647,5 +648,5 @@ export default function ProjectDetail() {
         )}
       </AnimatePresence>
     </div>
-  )
+  );
 }

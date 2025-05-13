@@ -69,7 +69,7 @@ export default function Footer() {
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
           <Link href="/" className="inline-block">
             <h2 className="text-4xl font-bold text-purple-500 mb-2">
-              MUHAMMAD ALI
+              Abdul Haseeb Rashid
               <span className="inline-block w-2 h-2 bg-purple-500 rounded-full ml-1 align-top mt-2"></span>
             </h2>
           </Link>
@@ -134,7 +134,7 @@ export default function Footer() {
             Copyright ©2025 All rights reserved | This portfolio is made by{" "}
             <Heart className="w-4 h-4 inline-block text-red-500" /> {" "}
             <a href="#" className="text-purple-400 hover:text-purple-300 transition-colors">
-              Ali
+              Haseeb
             </a>
           </p>
         </motion.div>

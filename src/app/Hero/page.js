@@ -1,22 +1,31 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { motion } from "framer-motion"
-import Image from "next/image"
-import { ArrowRight, ChevronDown, Linkedin, Github, Twitter, Mail } from "lucide-react"
-import { TypeAnimation } from "react-type-animation"
-import Navbar from "../component/Navbar"
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import {
+  ArrowRight,
+  ChevronDown,
+  Linkedin,
+  Github,
+  Twitter,
+  Mail,
+} from "lucide-react";
+import { TypeAnimation } from "react-type-animation";
+import Navbar from "../component/Navbar";
 
 // Import tech stack icons directly
-import reactIcon from "../../../public/icons/react.png"
-import nextjsIcon from "../../../public/icons/nextjs.png"
-import nodeIcon from "../../../public/icons/nodejs.png"
-import mongodbIcon from "../../../public/icons/mongodb.png"
-import tailwindIcon from "../../../public/icons/tailwind.png"
-import typescriptIcon from "../../../public/icons/typescript.png"
-import javaIcon from "../../../public/icons/java.png"
-import springIcon from "../../../public/icons/spring.png"
-import Link from "next/link"
+import reactIcon from "../../../public/icons/react.png";
+import tailwindIcon from "../../../public/icons/tailwind.png";
+import javaIcon from "../../../public/icons/java.png";
+import springIcon from "../../../public/icons/spring.png";
+
+import djangoIcon from "../../../public/icons/django.png";
+import flaskIcon from "../../../public/icons/flask.png";
+import pythonIcon from "../../../public/icons/python.png";
+import Link from "next/link";
+import postgreSQL from "../../../public/icons/postgreSQL.png";
+import typescriptIcon from "../../../public/icons/typescript.png";
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState({
@@ -24,10 +33,10 @@ export default function Hero() {
     subtitle: false,
     image: false,
     cards: false,
-  })
+  });
 
-  const [isHovering, setIsHovering] = useState(false)
-  const [particles, setParticles] = useState([])
+  const [isHovering, setIsHovering] = useState(false);
+  const [particles, setParticles] = useState([]);
 
   useEffect(() => {
     // Generate particles only on the client side
@@ -38,8 +47,8 @@ export default function Hero() {
         left: `${Math.random() * 100}%`,
         duration: 2 + Math.random() * 3,
         delay: Math.random() * 5,
-      }))
-    setParticles(newParticles)
+      }));
+    setParticles(newParticles);
 
     // Trigger animations after component mounts
     const timer = setTimeout(() => {
@@ -48,31 +57,34 @@ export default function Hero() {
         subtitle: true,
         image: true,
         cards: true,
-      })
-    }, 100)
+      });
+    }, 100);
 
-    return () => clearTimeout(timer)
-  }, [])
+    return () => clearTimeout(timer);
+  }, []);
 
   // Tech stack with icons
   const techStack = [
     { name: "React", icon: reactIcon },
-    { name: "Next.js", icon: nextjsIcon },
-    { name: "Node.js", icon: nodeIcon },
-    { name: "MongoDB", icon: mongodbIcon },
+    // { name: "Next.js", icon: nextjsIcon },
+    // { name: "Node.js", icon: nodeIcon },
+    { name: "postgreSQL", icon: postgreSQL },
     { name: "Tailwind CSS", icon: tailwindIcon },
     { name: "TypeScript", icon: typescriptIcon },
     { name: "Java", icon: javaIcon },
     { name: "Spring Boot", icon: springIcon },
-  ]
+    { name: "Django", icon: djangoIcon },
+    { name: "Flask", icon: flaskIcon },
+    { name: "Python", icon: pythonIcon },
+  ];
 
   // Tech icons that will float around the profile image (desktop only)
   const techIcons = [
     { icon: reactIcon, top: "10%", left: "0%", delay: 0 },
-    { icon: nextjsIcon, top: "70%", left: "10%", delay: 0.5 },
-    { icon: tailwindIcon, top: "20%", left: "85%", delay: 1 },
-    { icon: nodeIcon, top: "80%", left: "85%", delay: 1.5 },
-  ]
+    { icon: djangoIcon, top: "70%", left: "10%", delay: 0.5 },
+    { icon: pythonIcon, top: "20%", left: "85%", delay: 1 },
+    { icon: flaskIcon, top: "80%", left: "85%", delay: 1.5 },
+  ];
 
   return (
     <div className="min-h-screen py-20 px-4 sm:px-6 bg-none text-white overflow-x-hidden">
@@ -139,12 +151,12 @@ export default function Hero() {
           {[
             {
               icon: <Github className="w-5 h-5" />,
-              href: "https://github.com/Ali105111",
+              href: "https://github.com/abdulhaseebrashid",
               color: "hover:text-purple-400",
             },
             {
               icon: <Linkedin className="w-5 h-5" />,
-              href: "https://linkedin.com/in/yourusername",
+              href: "https://www.linkedin.com/in/haseeb-rashid-901682285/",
               color: "hover:text-blue-400",
             },
             {
@@ -152,7 +164,11 @@ export default function Hero() {
               href: "https://twitter.com/yourusername",
               color: "hover:text-sky-400",
             },
-            { icon: <Mail className="w-5 h-5" />, href: "mailto:your@email.com", color: "hover:text-indigo-400" },
+            {
+              icon: <Mail className="w-5 h-5" />,
+              href: "mailto:rashidhaseeb944@email.com",
+              color: "hover:text-indigo-400",
+            },
           ].map((social, index) => (
             <motion.a
               key={index}
@@ -198,7 +214,12 @@ export default function Hero() {
                   />
 
                   {/* Profile image */}
-                  <Image src="/profile.jpeg" alt="Muhammad Ali" fill className="object-cover" />
+                  <Image
+                    src="/HaseebPort.jpg"
+                    alt="Abdul Haseeb Rashid"
+                    fill
+                    className="object-cover"
+                  />
                 </motion.div>
 
                 {/* Animated ring */}
@@ -208,7 +229,11 @@ export default function Hero() {
                     rotate: 360,
                   }}
                   transition={{
-                    rotate: { duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" },
+                    rotate: {
+                      duration: 20,
+                      repeat: Number.POSITIVE_INFINITY,
+                      ease: "linear",
+                    },
                   }}
                 />
 
@@ -286,7 +311,11 @@ export default function Hero() {
                   href: "https://twitter.com/yourusername",
                   color: "hover:text-sky-400",
                 },
-                { icon: <Mail className="w-5 h-5" />, href: "mailto:your@email.com", color: "hover:text-indigo-400" },
+                {
+                  icon: <Mail className="w-5 h-5" />,
+                  href: "mailto:your@email.com",
+                  color: "hover:text-indigo-400",
+                },
               ].map((social, index) => (
                 <motion.a
                   key={index}
@@ -308,10 +337,12 @@ export default function Hero() {
               transition={{ duration: 0.8 }}
               className="mb-4 text-center"
             >
-              <h2 className="text-lg font-medium text-purple-400 mb-2">Hello, I'm</h2>
+              <h2 className="text-lg font-medium text-purple-400 mb-2">
+                Hello, I'm
+              </h2>
               <h1 className="text-4xl font-bold text-white mb-4 relative">
                 <span className="relative inline-block">
-                  <span className="relative z-10">Muhammad Ali</span>
+                  <span className="relative z-10">Abdul Haseeb Rashid</span>
                   <motion.span
                     className="absolute bottom-2 left-0 h-3 bg-purple-600/30 w-full z-0"
                     initial={{ width: 0 }}
@@ -332,13 +363,13 @@ export default function Hero() {
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400">
                   <TypeAnimation
                     sequence={[
-                      "Full Stack Web Developer",
+                      "AI-Driven Web Application Developer",
                       2000,
                       // "UI/UX Designer",
                       // 2000,
                       "React Specialist",
                       2000,
-                      "Next.js Expert",
+                      "Django Expert",
                       2000,
                     ]}
                     wrapper="span"
@@ -348,7 +379,8 @@ export default function Hero() {
                 </span>
               </h2>
               <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-                I build modern, responsive web applications with cutting-edge technologies
+                I build modern, responsive web applications powered by AI-driven
+                technologies and intelligent backend systems. technologies
               </p>
             </motion.div>
 
@@ -363,10 +395,18 @@ export default function Hero() {
                 <motion.div
                   key={index}
                   className="px-3 py-1 bg-white/5 rounded-full text-sm border border-white/10 flex items-center gap-2"
-                  whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.1)" }}
+                  whileHover={{
+                    scale: 1.05,
+                    backgroundColor: "rgba(255, 255, 255, 0.1)",
+                  }}
                 >
                   <div className="w-4 h-4 relative">
-                    <Image src={tech.icon || "/placeholder.svg"} alt={tech.name} fill className="object-contain" />
+                    <Image
+                      src={tech.icon || "/placeholder.svg"}
+                      alt={tech.name}
+                      fill
+                      className="object-contain"
+                    />
                   </div>
                   {tech.name}
                 </motion.div>
@@ -384,8 +424,14 @@ export default function Hero() {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <Link href='/projects'><span className="relative z-10">View My Projects</span></Link>
-                <motion.div initial={{ x: -10, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 0.2 }}>
+                <Link href="/projects">
+                  <span className="relative z-10">View My Projects</span>
+                </Link>
+                <motion.div
+                  initial={{ x: -10, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.2 }}
+                >
                   <ArrowRight className="w-5 h-5" />
                 </motion.div>
                 <motion.div
@@ -407,10 +453,12 @@ export default function Hero() {
                 transition={{ duration: 0.8 }}
                 className="mb-4"
               >
-                <h2 className="text-lg font-medium text-purple-400 mb-2">Hello, I'm</h2>
+                <h2 className="text-lg font-medium text-purple-400 mb-2">
+                  Hello, I'm
+                </h2>
                 <h1 className="text-5xl md:text-7xl font-bold text-white mb-4 relative">
                   <span className="relative inline-block">
-                    <span className="relative z-10">Muhammad Ali</span>
+                    <span className="relative z-10">Abdul Haseeb</span>
                     <motion.span
                       className="absolute bottom-2 left-0 h-3 bg-purple-600/30 w-full z-0"
                       initial={{ width: 0 }}
@@ -431,13 +479,13 @@ export default function Hero() {
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400">
                     <TypeAnimation
                       sequence={[
-                        "Full Stack Web Developer",
+                        "AI-Driven Web Application Developer",
                         2000,
                         // "UI/UX Designer",
                         // 2000,
                         "React Specialist",
                         2000,
-                        "Next.js Expert",
+                        "Django Expert",
                         2000,
                       ]}
                       wrapper="span"
@@ -447,7 +495,8 @@ export default function Hero() {
                   </span>
                 </h2>
                 <p className="text-xl text-gray-300 max-w-2xl">
-                  I build modern, responsive web applications with cutting-edge technologies
+                  I build modern, responsive web applications powered by
+                  AI-driven technologies and intelligent backend systems.
                 </p>
               </motion.div>
 
@@ -461,7 +510,9 @@ export default function Hero() {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <Link href='/projects'><span className="relative z-10">View My Projects</span></Link>
+                  <Link href="/projects">
+                    <span className="relative z-10">View My Projects</span>
+                  </Link>
                   <motion.div
                     initial={{ x: -10, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
@@ -488,10 +539,18 @@ export default function Hero() {
                   <motion.div
                     key={index}
                     className="px-3 py-1 bg-white/5 rounded-full text-sm border border-white/10 flex items-center gap-2"
-                    whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.1)" }}
+                    whileHover={{
+                      scale: 1.05,
+                      backgroundColor: "rgba(255, 255, 255, 0.1)",
+                    }}
                   >
                     <div className="w-4 h-4 relative">
-                      <Image src={tech.icon || "/placeholder.svg"} alt={tech.name} fill className="object-contain" />
+                      <Image
+                        src={tech.icon || "/placeholder.svg"}
+                        alt={tech.name}
+                        fill
+                        className="object-contain"
+                      />
                     </div>
                     {tech.name}
                   </motion.div>
@@ -532,7 +591,12 @@ export default function Hero() {
                     }}
                   >
                     <div className="w-full h-full relative">
-                      <Image src={tech.icon || "/placeholder.svg"} alt="Tech icon" fill className="object-contain" />
+                      <Image
+                        src={tech.icon || "/placeholder.svg"}
+                        alt="Tech icon"
+                        fill
+                        className="object-contain"
+                      />
                     </div>
                   </motion.div>
                 ))}
@@ -551,7 +615,12 @@ export default function Hero() {
                   />
 
                   {/* Profile image */}
-                  <Image src="/profile.jpeg" alt="Muhammad Ali" fill className="object-cover" />
+                  <Image
+                    src="/pp.jpg"
+                    alt="Abdul Haseeb Rashid"
+                    fill
+                    className="object-cover"
+                  />
                 </motion.div>
 
                 {/* Animated rings */}
@@ -562,7 +631,11 @@ export default function Hero() {
                     scale: isHovering ? 1.1 : 1,
                   }}
                   transition={{
-                    rotate: { duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" },
+                    rotate: {
+                      duration: 20,
+                      repeat: Number.POSITIVE_INFINITY,
+                      ease: "linear",
+                    },
                     scale: { duration: 0.3 },
                   }}
                 />
@@ -574,7 +647,11 @@ export default function Hero() {
                     scale: isHovering ? 1.1 : 1,
                   }}
                   transition={{
-                    rotate: { duration: 25, repeat: Number.POSITIVE_INFINITY, ease: "linear" },
+                    rotate: {
+                      duration: 25,
+                      repeat: Number.POSITIVE_INFINITY,
+                      ease: "linear",
+                    },
                     scale: { duration: 0.3 },
                   }}
                 />
@@ -648,11 +725,14 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 1.5 }}
         >
           <span className="text-sm text-gray-400 mb-2">Scroll Down</span>
-          <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}>
+          <motion.div
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
+          >
             <ChevronDown className="w-6 h-6 text-purple-400" />
           </motion.div>
         </motion.div>
       </div>
     </div>
-  )
+  );
 }

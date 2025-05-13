@@ -1,31 +1,50 @@
-"use client"
+"use client";
 
-import { useState, useEffect, useRef } from "react"
-import { useRouter } from "next/navigation"
-import Image from "next/image"
-import { motion } from "framer-motion"
-import { ArrowLeft } from "lucide-react"
-import Navbar from "../component/Navbar" // Import your Navbar component
+import { useState, useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { ArrowLeft } from "lucide-react";
+import Navbar from "../component/Navbar"; // Import your Navbar component
 
-// Sample project data - replace with your actual data source
+// Updated project data with AI project replacing e-commerce
 const projectsData = [
   {
-    id: "ecommerce-platform",
-    title: "E-Commerce Platform",
-    description: "A full-stack e-commerce solution with payment integration and admin dashboard.",
-    techStack: ["React", "Node.js", "Express", "MongoDB", "Redux", "Stripe API", "Hontinger (VPS Server)"],
-    image: "/ProjectImages/p4-1.png",
-    category: "Web Development",
-    date: "April 2025",
+    id: "ai-innovation-hub",
+    title: "AI Innovation Hub",
+    description:
+      "A comprehensive AI-powered web application that integrates multiple machine learning models for practical applications. Features include advanced object detection with real-time processing, an innovative sign language translation system that bridges communication gaps, and a creative AI story generator that produces unique narratives based on user prompts. This platform demonstrates the practical implementation of AI in solving real-world challenges.",
+    techStack: [
+      "Python",
+      "Django",
+      "REST API",
+      "PostgreSQL",
+      "React",
+      "TensorFlow",
+      "PyTorch",
+      "Computer Vision",
+      "Natural Language Processing",
+      "AI Assistant Integration",
+    ],
+    image: "/ProjectImages/AI 1.png",
+    category: "AI-powered Web Developement",
+    date: "May 2025",
   },
   {
     id: "phonebechpk.com",
     title: "phonebechpk.com",
     description:
       "Phone Bech is a dedicated marketplace where users can easily post advertisements for their mobile phones and connect with potential buyers.",
-    techStack: ["Next.js", "Framer Motion", "Tailwind CSS", "Vercel", "Supabase", "Deployment"],
+    techStack: [
+      "Next.js",
+      "Framer Motion",
+      "Tailwind CSS",
+      "Vercel",
+      "Supabase",
+      "Deployment",
+    ],
     image: "/ProjectImages/cover-01.jpg",
-    category: "Web Development",
+    category: "AI-powered Web Developement",
     date: "December 2024",
   },
   {
@@ -45,52 +64,36 @@ const projectsData = [
       "Wi-Fi triangulation",
       "BLE (Bluetooth Low Energy)",
       "Gyroscope",
+      "Python",
     ],
     image: "/ProjectImages/fyp1.png",
-    category: "Web Developement & Mobile Development",
+    category: "AI-powered Web Developement & Mobile Development",
     date: "October 2024",
   },
-  {
-    id: "Nifty-Orbit",
-    title: "NiftyOrbit.com",
-    description:
-      "Fully functional e-commerce platform that allows users to browse products, manage their shopping cart, place orders, and receive shipment updates. The backend is designed to be secure, scalable, and efficient for handling business operations like order management, product management, and customer interactions.",
-
-    techStack: ["React", "Nest.js", "postgresql", "Hontinger,Deployment", "VPS Server"],
-    image: "/ProjectImages/nifty2.png",
-    category: "Web Developement",
-    date: "March 2025",
-  },
-  {
-    id: "SparewarePro",
-    title: "SparewarePro.com",
-    description:
-      "A complete e-commerce solution enabling users to explore products, manage carts, checkout securely, and track orders in real time. Built with a robust backend for scalability, it supports critical business functions including inventory management, order processing, and customer engagement—all while ensuring security and performance at scale.",
-
-    techStack: ["React", "Node.js", "Socket.io", "MongoDB", "AWS"],
-    image: "/ProjectImages/spare1.png",
-    category: "Web Development",
-    date: "January 2025",
-  },
-]
+];
 
 export default function AllProjects() {
-  const router = useRouter()
-  const [activeCategory, setActiveCategory] = useState("All")
-  const [isVisible, setIsVisible] = useState(false)
-  const pageRef = useRef(null)
-  const [particles, setParticles] = useState([])
+  const router = useRouter();
+  const [activeCategory, setActiveCategory] = useState("All");
+  const [isVisible, setIsVisible] = useState(false);
+  const pageRef = useRef(null);
+  const [particles, setParticles] = useState([]);
 
   // Get all unique categories
-  const categories = ["All", ...new Set(projectsData.map((project) => project.category))]
+  const categories = [
+    "All",
+    ...new Set(projectsData.map((project) => project.category)),
+  ];
 
   // Filter projects based on active category
   const filteredProjects =
-    activeCategory === "All" ? projectsData : projectsData.filter((project) => project.category === activeCategory)
+    activeCategory === "All"
+      ? projectsData
+      : projectsData.filter((project) => project.category === activeCategory);
 
   useEffect(() => {
     // Trigger animations after component mounts
-    setIsVisible(true)
+    setIsVisible(true);
 
     // Generate particles only on the client side
     const newParticles = Array(20)
@@ -100,12 +103,15 @@ export default function AllProjects() {
         left: `${Math.random() * 100}%`,
         duration: 2 + Math.random() * 3,
         delay: Math.random() * 5,
-      }))
-    setParticles(newParticles)
-  }, [])
+      }));
+    setParticles(newParticles);
+  }, []);
 
   return (
-    <div className="min-h-screen bg-none text-white overflow-x-hidden" ref={pageRef}>
+    <div
+      className="min-h-screen bg-none text-white overflow-x-hidden"
+      ref={pageRef}
+    >
       {/* Animated background elements */}
       <div className="fixed inset-0 z-[-1] overflow-hidden">
         {/* Grid lines */}
@@ -206,8 +212,8 @@ export default function AllProjects() {
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            Browse through all my projects and explore the details of each one. Click on any project to view more
-            information.
+            Browse through all my projects and explore the details of each one.
+            Click on any project to view more information.
           </motion.p>
         </motion.div>
 
@@ -249,7 +255,10 @@ export default function AllProjects() {
               initial={{ opacity: 0, y: 20 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 * index }}
-              whileHover={{ scale: 1.02, backgroundColor: "rgba(255, 255, 255, 0.08)" }}
+              whileHover={{
+                scale: 1.02,
+                backgroundColor: "rgba(255, 255, 255, 0.08)",
+              }}
               onClick={() => router.push(`/projects/${project.id}`)}
             >
               <div className="relative h-48 overflow-hidden">
@@ -266,11 +275,18 @@ export default function AllProjects() {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
-                <p className="text-gray-300 mb-4 line-clamp-2">{project.description}</p>
+                <h3 className="text-xl font-bold text-white mb-2">
+                  {project.title}
+                </h3>
+                <p className="text-gray-300 mb-4 line-clamp-2">
+                  {project.description}
+                </p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.techStack.slice(0, 3).map((tech, techIndex) => (
-                    <span key={techIndex} className="px-2 py-1 bg-white/5 rounded-full text-xs text-gray-300">
+                    <span
+                      key={techIndex}
+                      className="px-2 py-1 bg-white/5 rounded-full text-xs text-gray-300"
+                    >
                       {tech}
                     </span>
                   ))}
@@ -282,7 +298,10 @@ export default function AllProjects() {
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-gray-400">{project.date}</span>
-                  <motion.span className="text-purple-400 text-sm font-medium" whileHover={{ x: 5 }}>
+                  <motion.span
+                    className="text-purple-400 text-sm font-medium"
+                    whileHover={{ x: 5 }}
+                  >
                     View Details →
                   </motion.span>
                 </div>
@@ -299,10 +318,12 @@ export default function AllProjects() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
           >
-            <p className="text-xl text-gray-400">No projects found in this category.</p>
+            <p className="text-xl text-gray-400">
+              No projects found in this category.
+            </p>
           </motion.div>
         )}
       </div>
     </div>
-  )
+  );
 }

@@ -296,14 +296,14 @@ export default function ContactPage() {
                 <div>
                   <h3 className="text-sm text-gray-400 mb-1">Email</h3>
                   <a href="mailto:contact@example.com" className="text-white hover:text-purple-400 transition-colors">
-                    muhammadaliiqbal105111@example.com
+                    rashidhaseeb944@gmail.com
                   </a>
                 </div>
 
                 <div>
                   <h3 className="text-sm text-gray-400 mb-1">Phone</h3>
                   <a href="tel:+1234567890" className="text-white hover:text-purple-400 transition-colors">
-                    +92 3154404482
+                    +92 3116784821
                   </a>
                 </div>
 

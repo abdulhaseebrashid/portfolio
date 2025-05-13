@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
-import { Code, Database, Layout, Search } from 'lucide-react'
+import { Code, Database, Layout, Search, Cpu, Bot } from 'lucide-react'
 
 export default function Services() {
   const [particles, setParticles] = useState([])
@@ -40,6 +40,16 @@ export default function Services() {
       icon: <Search className="w-12 h-12 text-purple-500" />,
       title: "SEO FRIENDLY",
       description: "Optimizing your web presence for search engines with best practices for content structure, performance, and accessibility to improve visibility and rankings."
+    },
+    {
+      icon: <Cpu className="w-12 h-12 text-purple-500" />,
+      title: "MACHINE LEARNING ENGINEERING",
+      description: "Designing and implementing intelligent systems using machine learning, deep learning, and data analytics to create predictive and automated solutions for real-world problems."
+    },
+    {
+      icon: <Bot className="w-12 h-12 text-purple-500" />,
+      title: "AI-POWERED WEB APPLICATIONS",
+      description: "Developing smart web applications integrated with AI technologies like chatbots and NLP to provide personalized, efficient, and engaging user experiences."
     }
   ]
 

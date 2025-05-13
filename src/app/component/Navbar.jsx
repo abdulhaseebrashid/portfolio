@@ -182,8 +182,8 @@ export default function Navbar() {
               <div className="p-8">
                 <div className="w-full h-px bg-white/10 mb-8"></div>
                 <div className="text-center text-white/60 text-sm">
-                  <p>© 2025 Muhammad Ali</p>
-                  <p>Full Stack Developer</p>
+                  <p>© 2025 Abdul Haseeb Rashid</p>
+                  <p>AI-Driven Web Application Developer</p>
                 </div>
               </div>
             </motion.div>
