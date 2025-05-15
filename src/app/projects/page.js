@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import Navbar from "../component/Navbar"; // Import your Navbar component
 
-// Updated project data with AI project replacing e-commerce
+// Updated project data with HRS Frozen Foods added
 const projectsData = [
   {
     id: "ai-innovation-hub",
@@ -27,7 +27,7 @@ const projectsData = [
       "AI Assistant Integration",
     ],
     image: "/ProjectImages/AI 1.png",
-    category: "AI-powered Web Developement",
+    category: "AI-powered Web Development",
     date: "May 2025",
   },
   {
@@ -44,7 +44,7 @@ const projectsData = [
       "Deployment",
     ],
     image: "/ProjectImages/cover-01.jpg",
-    category: "AI-powered Web Developement",
+    category: "AI-powered Web Development",
     date: "December 2024",
   },
   {
@@ -67,8 +67,27 @@ const projectsData = [
       "Python",
     ],
     image: "/ProjectImages/fyp1.png",
-    category: "AI-powered Web Developement & Mobile Development",
+    category: "AI-powered Web Development & Mobile Development",
     date: "October 2024",
+  },
+  {
+    id: "hrs-frozen-foods",
+    title: "HRS Frozen Foods",
+    description:
+      "A professional frozen food delivery platform where users can order their favorite frozen foods with a seamless user experience, including login, signup with Google, a dashboard with recent orders, recommendations, and location-based features using Leaflet maps.",
+    techStack: [
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "Firebase",
+      "Leaflet",
+      "Node.js",
+      "Google APIs",
+      "Nodemailer",
+    ],
+    image: "/ProjectImages/HRS1.png",
+    category: "Web Development & E-commerce",
+    date: "January 2025",
   },
 ];
 

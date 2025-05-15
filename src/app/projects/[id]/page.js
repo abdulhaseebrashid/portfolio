@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 import Navbar from "../../component/Navbar"; // Import your Navbar component
 
-// Updated project data with AI project replacing e-commerce
+// Updated project data with comprehensive tech stack for HRS Frozen Foods
 const projectsData = [
   {
     id: "ai-innovation-hub",
@@ -40,7 +40,6 @@ const projectsData = [
       "/ProjectImages/AI 1.png",
       "/ProjectImages/AI 2.png",
       "/ProjectImages/AI 3.png",
-      // "/ProjectImages/AI 4.png",
       "/ProjectImages/AI 5.png",
       "/ProjectImages/AI 6.png",
       "/ProjectImages/AI 7.png",
@@ -62,7 +61,6 @@ const projectsData = [
       "Phone Bech is a dedicated marketplace where users can easily post advertisements for their mobile phones and connect with potential buyers.",
     longDescription:
       "A Next.js and Supabase-powered online marketplace for buying and selling mobile phones. The platform offers secure user authentication, streamlined ad management, and advanced search filters with real-time messaging. Its fully responsive design delivers a smooth experience on any device. Additional features include seller verification and optimized image uploads for high-quality listings. Successfully launched with an active user base, enabling seamless phone transactions.",
-
     techStack: ["Next.js", "Supabase", "Tailwind CSS", "Vercel"],
     images: [
       "/ProjectImages/cover-01.jpg",
@@ -84,14 +82,12 @@ const projectsData = [
     title: "Smart-Guardian (FYP)",
     description:
       "Smart Guardian is an innovative resource management and security system designed for factories, educational institutions, and healthcare facilities, utilizing geo-fencing, indoor positioning, and computer vision.",
-
     longDescription:
       "SecuriSense is an innovative security platform integrating geo-fencing, indoor positioning (IPS), and computer vision for automated attendance and access control. Features include multi-factor authentication, real-time alerts, and interactive dashboards. The system combines GPS, Wi-Fi triangulation, BLE, and facial recognition for comprehensive indoor/outdoor tracking. Built with Java Spring Boot, Next.js, and Firebase/PostgreSQL, it provides role-based permissions and real-time monitoring. Successfully addresses security and attendance challenges across factories, schools, and healthcare facilities.",
-
     techStack: [
       "Spring Boot",
       "Firebase",
-      "Postgresql",
+      "PostgreSQL",
       "Nextjs",
       "Android Studio",
       "Java",
@@ -110,13 +106,49 @@ const projectsData = [
       "/ProjectImages/fyp6.png",
       "/ProjectImages/fyp7.png",
     ],
-    category: "AI-powered Web Developement & Mobile Development",
+    category: "AI-powered Web Development & Mobile Development",
     date: "October 2024",
     duration: "5 months",
     client: "University Project",
     role: "Full Stack Developer",
     githubUrl: "https://github.com/yourusername/fitness-app",
     liveUrl: "#",
+  },
+  {
+    id: "hrs-frozen-foods",
+    title: "HRS Frozen Foods",
+    description:
+      "A professional frozen food delivery platform where users can order their favorite frozen foods with a seamless user experience, including login, signup with Google, a dashboard with recent orders, recommendations, and location-based features using Leaflet maps.",
+    longDescription:
+      "HRS Frozen Foods is a modern e-commerce platform designed to provide a seamless frozen food delivery experience. Built with React and Django, the platform offers a user-friendly interface for browsing, ordering, and tracking frozen food deliveries, leveraging a REST API for seamless communication and PostgreSQL for robust data management.\n\nThe landing page showcases a wide variety of frozen food products with detailed descriptions, customer reviews, and high-quality images. Users can sign up or log in using their Google Gmail accounts, with additional features like password reset for enhanced security. Post-login, users are greeted with a personalized dashboard displaying recent orders, new orders, and tailored food recommendations based on their preferences.\n\nA standout feature is the integration of Leaflet maps, which automatically detects the user's current location to streamline the delivery process. The ordering system is intuitive, allowing users to customize their orders, select delivery slots, and receive real-time updates. Once an order is placed, an automated email is sent to the owner via Gmail using Nodemailer, ensuring efficient communication.\n\nThe platform is fully responsive, ensuring a consistent experience across devices, and incorporates modern design principles with Tailwind CSS for a professional look and feel. HRS Frozen Foods successfully delivers a convenient and efficient solution for frozen food enthusiasts.",
+    techStack: [
+      "React",
+      "Django",
+      "REST API",
+      "PostgreSQL",
+      "Tailwind CSS",
+      // "Firebase",
+      "Leaflet",
+      // "Node.js",
+      "Google APIs",
+      "Nodemailer",
+    ],
+    images: [
+      "/ProjectImages/HRS1.png",
+      "/ProjectImages/HRS2.png",
+      "/ProjectImages/HRS3.png",
+      "/ProjectImages/HRS4.png",
+      "/ProjectImages/HRS5.png",
+      "/ProjectImages/HRS6.png",
+      "/ProjectImages/HRS7.png",
+    ],
+    category: "Web Development & E-commerce",
+    date: "January 2025",
+    duration: "3 months",
+    client: "Commercial Project",
+    role: "Lead Developer",
+    githubUrl: "https://github.com/yourusername/hrs-frozen-foods",
+    liveUrl: "https://hrsfrozenfoods.example.com",
   },
 ];
 
