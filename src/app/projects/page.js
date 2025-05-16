@@ -76,12 +76,14 @@ const projectsData = [
     description:
       "A professional frozen food delivery platform where users can order their favorite frozen foods with a seamless user experience, including login, signup with Google, a dashboard with recent orders, recommendations, and location-based features using Leaflet maps.",
     techStack: [
-      "Next.js",
+      // "Next.js",
+      "Djnago",
       "React",
       "Tailwind CSS",
-      "Firebase",
+      "postgreSQL",
+      // "Firebase",
       "Leaflet",
-      "Node.js",
+      // "Node.js",
       "Google APIs",
       "Nodemailer",
     ],

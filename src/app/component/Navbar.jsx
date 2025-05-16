@@ -9,6 +9,7 @@ export default function Navbar() {
   const [activeItem, setActiveItem] = useState("Home")
   const [scrolled, setScrolled] = useState(false)
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+  const [currentMessageIndex, setCurrentMessageIndex] = useState(0)
 
   // Handle scroll effect
   useEffect(() => {
@@ -36,14 +37,84 @@ export default function Navbar() {
     return () => window.removeEventListener("resize", handleResize)
   }, [])
 
+  // Cycle through thinking messages
+  const thinkingMessages = [
+    "You wanna explore",
+    "My AI Stuff",
+    "Click Me!",
+  ]
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentMessageIndex((prevIndex) =>
+        (prevIndex + 1) % thinkingMessages.length
+      )
+    }, 3000) // Change message every 3 seconds
+
+    return () => clearInterval(interval)
+  }, [thinkingMessages.length])
+
   const navItems = [
     { name: "Home", href: "/" },
-    { name: "Projects", href: "projects" },
+    { name: "Projects", href: "/projects" },
     { name: "Contact Me", href: "/contact" },
   ]
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen)
+  }
+
+  // Robot animation variants
+  const robotVariants = {
+    animate: {
+      y: [0, -10, 0], // Slightly more pronounced floating
+      rotate: [-3, 3, -3], // Enhanced tilt for robotic motion
+      boxShadow: [
+        "0px 0px 15px rgba(192, 132, 252, 0.6)",
+        "0px 0px 25px rgba(192, 132, 252, 0.9)",
+        "0px 0px 15px rgba(192, 132, 252, 0.6)",
+      ],
+      transition: {
+        y: { repeat: Infinity, duration: 3.5, ease: "easeInOut" },
+        rotate: { repeat: Infinity, duration: 4.5, ease: "easeInOut" },
+        boxShadow: { repeat: Infinity, duration: 2.5, ease: "easeInOut" },
+      },
+    },
+    hover: {
+      scale: 1.15,
+      boxShadow: "0px 0px 30px rgba(192, 132, 252, 1)",
+      transition: { duration: 0.4 },
+    },
+    tap: {
+      scale: 0.9,
+      boxShadow: "0px 0px 20px rgba(192, 132, 252, 0.7)",
+      transition: { duration: 0.2 },
+    },
+  }
+
+  // Thinking cloud animation variants
+  const cloudVariants = {
+    animate: {
+      y: [-5, 5, -5],
+      scale: [1, 1.1, 1],
+      boxShadow: [
+        "0px 0px 10px rgba(255, 255, 255, 0.3)",
+        "0px 0px 20px rgba(255, 255, 255, 0.5)",
+        "0px 0px 10px rgba(255, 255, 255, 0.3)",
+      ],
+      transition: {
+        repeat: Infinity,
+        duration: 2.5,
+        ease: "easeInOut",
+      },
+    },
+  }
+
+  // Text animation variants for sliding effect
+  const textVariants = {
+    initial: { opacity: 0, x: 50 },
+    animate: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
+    exit: { opacity: 0, x: -50, transition: { duration: 0.6, ease: "easeIn" } },
   }
 
   return (
@@ -112,6 +183,103 @@ export default function Navbar() {
         <div className="md:hidden w-6"></div>
       </motion.nav>
 
+      {/* AI Robot with Thinking Cloud */}
+      <Link href="/projects/coreAI" passHref>
+        <motion.div
+          className="fixed bottom-8 right-8 z-50 flex flex-col items-center cursor-pointer"
+          variants={robotVariants}
+          animate="animate"
+          whileHover="hover"
+          whileTap="tap"
+        >
+          {/* Thinking Cloud */}
+          <motion.div
+            className="relative bg-gray-200/20 backdrop-blur-md rounded-full px-6 py-3 mb-3 w-48 h-12 flex items-center justify-center overflow-hidden border border-gray-300/10"
+            variants={cloudVariants}
+            animate="animate"
+            style={{ filter: "drop-shadow(0 0 10px rgba(255, 255, 255, 0.2))" }}
+          >
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={currentMessageIndex}
+                className="text-sm text-white font-semibold"
+                variants={textVariants}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+              >
+                {thinkingMessages[currentMessageIndex]}
+              </motion.span>
+            </AnimatePresence>
+            {/* Cloud tails */}
+            <div className="absolute -bottom-2 left-1/3 w-5 h-5 bg-gray-200/20 rounded-full"></div>
+            <div className="absolute -bottom-3 left-2/5 w-3 h-3 bg-gray-200/20 rounded-full"></div>
+          </motion.div>
+
+          {/* Robot Head */}
+          <motion.div
+            className="bg-gradient-to-br from-purple-900 to-purple-600 rounded-lg w-20 h-24 flex flex-col items-center justify-center shadow-xl relative overflow-hidden"
+            style={{ background: "linear-gradient(45deg, #4C1D95, #6B21A8)" }}
+          >
+            {/* Antenna */}
+            <motion.div
+              className="absolute top-0 left-1/2 transform -translate-x-1/2 w-1 h-4 bg-gray-300 rounded-sm"
+              animate={{ y: [-2, 2, -2], rotate: [0, 5, 0] }}
+              transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+            >
+              {/* Glowing tip on antenna */}
+              <motion.div
+                className="absolute top-0 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-red-500 rounded-full"
+                style={{ boxShadow: "0 0 8px rgba(239, 68, 68, 0.8)" }}
+                animate={{ scale: [1, 1.3, 1] }}
+                transition={{ repeat: Infinity, duration: 1, ease: "easeInOut" }}
+              />
+            </motion.div>
+            {/* Face Panel */}
+            <div className="relative w-16 h-16 bg-gray-700/30 rounded-md flex flex-col items-center justify-center">
+              {/* Glowing Rectangular Eyes */}
+              <motion.div
+                className="flex space-x-2"
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+              >
+                <motion.div
+                  className="w-4 h-3 bg-cyan-400 rounded-sm"
+                  style={{ boxShadow: "0 0 10px rgba(34, 211, 238, 0.8)" }}
+                  animate={{ scale: [1, 1.1, 1] }}
+                  transition={{ repeat: Infinity, duration: 1.5, delay: 0.2 }}
+                />
+                <motion.div
+                  className="w-4 h-3 bg-cyan-400 rounded-sm"
+                  style={{ boxShadow: "0 0 10px rgba(34, 211, 238, 0.8)" }}
+                  animate={{ scale: [1, 1.1, 1] }}
+                  transition={{ repeat: Infinity, duration: 1.5, delay: 0.4 }}
+                />
+              </motion.div>
+              {/* Segmented Mouth (Speaker-like) */}
+              <div className="absolute bottom-2 w-10 h-4 bg-gray-800 rounded-sm flex items-center justify-center gap-0.5">
+                <div className="w-1 h-3 bg-gray-400 rounded-sm"></div>
+                <div className="w-1 h-3 bg-gray-400 rounded-sm"></div>
+                <div className="w-1 h-3 bg-gray-400 rounded-sm"></div>
+                <div className="w-1 h-3 bg-gray-400 rounded-sm"></div>
+              </div>
+            </div>
+            {/* Bolts on sides */}
+            <motion.div
+              className="absolute top-2 left-2 w-2 h-2 bg-gray-500 rounded-full"
+              animate={{ rotate: [0, 360, 0] }}
+              transition={{ repeat: Infinity, duration: 5, ease: "linear" }}
+            />
+            <motion.div
+              className="absolute top-2 right-2 w-2 h-2 bg-gray-500 rounded-full"
+              animate={{ rotate: [0, 360, 0] }}
+              transition={{ repeat: Infinity, duration: 5, ease: "linear" }}
+            />
+            <div className="text-xs text-white font-bold mt-2">AI</div>
+          </motion.div>
+        </motion.div>
+      </Link>
+
       {/* Mobile Sidebar */}
       <AnimatePresence>
         {isSidebarOpen && (
@@ -176,6 +344,29 @@ export default function Navbar() {
                     </Link>
                   </motion.div>
                 ))}
+                {/* Core AI link in sidebar */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                >
+                  <Link href="/projects/coreAI" passHref>
+                    <motion.div
+                      className="relative text-white text-2xl font-bold cursor-pointer"
+                      onClick={toggleSidebar}
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <span className="relative z-10">Core AI</span>
+                      <motion.div
+                        className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-purple-500 to-indigo-500"
+                        initial={{ width: 0 }}
+                        whileHover={{ width: "100%" }}
+                        transition={{ duration: 0.2 }}
+                      />
+                    </motion.div>
+                  </Link>
+                </motion.div>
               </div>
 
               {/* Social links in sidebar */}
